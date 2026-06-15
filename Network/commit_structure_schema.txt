@@ -1,0 +1,14 @@
+| Type   |           Purpose                |
+
+ feat       New Feature
+ fix        Bux fix
+ docs       Documentation Change
+ style      Formatting [No Code Changes]
+ refactor   Code Restructuring
+ perf       Performance
+ test       Testing Additions
+ build      Build System/Dependancy Changes
+ ci         CI/CD Changes
+ chore      Miscellaneous Maintenance
+
+=============================================
