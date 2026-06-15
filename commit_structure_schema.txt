@@ -1,7 +1,8 @@
 | Type   |           Purpose                |
 
+ improv     Code Implementation/Improvement
  feat       New Feature
- fix        Bux fix
+ fix        Bug fix
  docs       Documentation Change
  style      Formatting [No Code Changes]
  refactor   Code Restructuring
