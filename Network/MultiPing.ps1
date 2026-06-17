@@ -1,25 +1,26 @@
 # Edit Array as needed for end devices
 # Script should accept user input for the desired IP's rather than being hardcoded in the script
 
-$IPList = Read-Host -Prompt "Please enter a comma seperated list of IP's.
+$IPList = Read-Host -Prompt "Please enter a comma seperated list of IP's: "
 
 # Split $IPList into an array.. feed into Test-Connection
 
+$computers = $IPList -split "," | ForEach-Object {$_.Trim() }
 
-$computers = @(
-    "x.x.x.x"
-    "x.x.x.x"
-    "x.x.x.x"
-)
+#$computers = @(
+#    "x.x.x.x"
+#    "x.x.x.x"
+#    "x.x.x.x"
+#)
 
 # Status Code Table
-$statuscodemap = @(
+$statuscodemap = @{
     0          = "Success"
     11010      = "Timed Out"
     11003      = "Host Unreachable"
     11002      = "Network Unreachable"
     11005      = "Port Unreachable"
-
+}
 # Define what the script will do
 $job = Test-Connection -ComputerName $computers -Count 1 -AsJob
 
