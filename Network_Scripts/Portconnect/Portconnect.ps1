@@ -1,0 +1,16 @@
+
+# Accept a list of IP's
+
+$IPList = Read-Host -Prompt "Please enter the list of IP's you want to test: "
+
+# Split IPList 
+
+# IP's = $IPList -split ....
+
+# Accept a list of Ports
+
+$PortList = Read-Host -Prompt "Please enter the list of ports you want to test: "
+
+# Split PortList
+
+# Ports = $PortList -split ',' ....
