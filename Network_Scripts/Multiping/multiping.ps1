@@ -25,13 +25,17 @@ $job | Wait-Job
 $results = $job | Receive-Job
 
 
-# Format results as: Address, Response and Status Code
-$results | Select-Object Address, ResponseTime, StatusCode, @{
+# Translate status codes from the statuscodemap
+$results | Select-Object Address, ResponseTime, StatusCode, @(
     Name = "Status"
-    Expression = { [System.Net.NetworkInformation.IPStatus]$_.StatusCode }
+    Expression = {
+        if ($statuscodemap.ContainsKey.($_.StatusCode)) {
+            $statuscodemap[$_.StatusCode]
+        }  else {
+                $_.StatusCode
+        }
+    }
 } | Format-Table -AutoSize
-
-
 
 # Maybe end up doing a #ForEach and iterating through the array? Might require PS7
 
