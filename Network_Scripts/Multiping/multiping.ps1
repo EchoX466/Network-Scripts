@@ -1,5 +1,5 @@
-# Edit Array as needed for end devices
-# Script should accept user input for the desired IP's rather than being hardcoded in the script
+
+# Accept user inputted list of IP's
 
 $IPList = Read-Host -Prompt "Please enter a comma seperated list of IP's: "
 
