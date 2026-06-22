@@ -26,7 +26,7 @@ $results = $job | Receive-Job
 
 
 # Translate status codes from the statuscodemap
-$results | Select-Object Address, ResponseTime, StatusCode, @(
+$results | Select-Object Address, ResponseTime, StatusCode, @{
     Name = "Status"
     Expression = {
         if ($statuscodemap.ContainsKey.($_.StatusCode)) {
