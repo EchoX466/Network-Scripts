@@ -13,6 +13,12 @@ $PortList = Read-Host -Prompt "Please enter the list of ports you want to test: 
 
 # Split PortList
 
-# $Ports = $PortList -split "," | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" }
+$Ports = $PortList -split "," | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" }
+
+# Test IP's and Ports
 
 
+# Test each IP and port
+foreach ($IP in $IPs) {
+    foreach ($Port in $Ports) {
+        $result = Test-NetConnection -ComputerName $IP -Port $Port ........
