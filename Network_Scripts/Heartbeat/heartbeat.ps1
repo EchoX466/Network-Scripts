@@ -28,3 +28,8 @@ $results | Select-Object Address, ResponseTime, StatusCode, @{
     Expression = { [System.Net.NetworkInformation.IPStatus]$_.StatusCode }
 } | Format-Table -AutoSize
 
+# Export to CSV
+
+$results | Select Address, ResponseTime, StatusCode | Export-Csv "ping-results.csv" -NoTypeInformation
+
+# Need to set date & time variables and use them as the format of the csv name.... 
