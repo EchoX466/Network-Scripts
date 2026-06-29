@@ -29,3 +29,5 @@ foreach ($IP in $IPs) {
     }
 }
 
+# Script execution is slooowww... need to test each IP and port in Parallel form
+# Wrap in try block.. if test succeeds, port is open. else port is closed. catch block for ip and port test failure
