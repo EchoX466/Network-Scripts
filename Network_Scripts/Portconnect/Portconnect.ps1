@@ -5,7 +5,7 @@ $IPList = Read-Host -Prompt "Please enter the list of IP's you want to test: "
 
 # Split IPList 
 
-IPs = $IPList -split "," | ForEach-Object { $_.Trim() } | Where-Object {$_ -ne "" }
+$IPs = $IPList -split "," | ForEach-Object { $_.Trim() } | Where-Object {$_ -ne "" }
 
 # Accept a list of Ports
 
