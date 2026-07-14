@@ -16,18 +16,17 @@ $PortList = Read-Host -Prompt "Please enter the list of ports you want to test: 
 $Ports = $PortList -split "," | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" }
 
 # Test each IP and port
-foreach ($IP in $IPs) {
-    foreach ($Port in $Ports) {
-        $result = Test-NetConnection -ComputerName $IP -Port $Port
-            
-        # Output result
-        if ($result.TcpTestSucceeded) {
-            Write-Host "$IP : Port $Port is OPEN" -ForegroundColor Green
-        } else {
-            Write-Host "$IP : Port $Port is CLOSED" -ForegroundColor Red
+$Targets = foreach ($IP in $IP) {
+	for each (#Port in $Ports) {
+        [PSCustomObject]@{
+            IP   = $IP
+            Port = $Port
         }
     }
 }
+
+
+
 # $Targets | ForEach-Object -Parallel {
 #
 #    $IP = $_.IP
